@@ -259,7 +259,11 @@ const CoastlineDashboard = () => {
     const fetchAttributes = async (layerName) => {
       try {
         const url = `https://headpiece-scary-morale.ngrok-free.dev/geoserver/dashboard/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=${layerName}&outputFormat=application/json&maxFeatures=500`;
-        const res = await fetch(url);
+        const res = await fetch(url, {
+          headers: {
+            "ngrok-skip-browser-warning": "true",
+          },
+        });
         const contentType = res.headers.get("content-type");
         if (!contentType || !contentType.includes("application/json"))
           return null;
@@ -294,7 +298,11 @@ const CoastlineDashboard = () => {
       const checkPromises = ALL_LAYERS_ARRAY.map(async (layer) => {
         try {
           const url = `https://headpiece-scary-morale.ngrok-free.dev/geoserver/dashboard/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=${layer}&outputFormat=application/json&maxFeatures=1`;
-          const res = await fetch(url);
+          const res = await fetch(url, {
+            headers: {
+              "ngrok-skip-browser-warning": "true",
+            },
+          });
           const contentType = res.headers.get("content-type");
           if (
             res.ok &&
