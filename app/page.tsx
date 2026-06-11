@@ -39,7 +39,20 @@ const ALL_LAYERS_ARRAY = [
   "dashboard:togean_1000k_hasil",
 ];
 
-const CLASSIFIED_LAYERS = ["bitung_5k_sumber", "bitung_25k_hasil"];
+const CLASSIFIED_LAYERS = [
+  "bitung_5k_sumber",
+  "bitung_25k_hasil",
+  "togean_5k_sumber",
+  "togean_25k_sumber",
+  "togean_25k_hasil",
+  "togean_50k_sumber",
+  "togean_50k_hasil",
+  "togean_250k_sumber",
+  "togean_250k_hasil",
+  "togean_500k_sumber",
+  "togean_500k_hasil",
+  "togean_1000k_hasil",
+];
 
 // --- KODE BARU (Dioptimasi) ---
 const AttributeTable = memo(function AttributeTable({
