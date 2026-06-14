@@ -271,7 +271,7 @@ const CoastlineDashboard = () => {
     if (!sourceLayerName || !targetLayerName) return;
     const fetchAttributes = async (layerName) => {
       try {
-        const url = `https://headpiece-scary-morale.ngrok-free.dev/geoserver/dashboard/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=${layerName}&outputFormat=application/json&maxFeatures=500`;
+        const url = `https://helped-prague-synthesis-ryan.trycloudflare.com/geoserver/dashboard/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=${layerName}&outputFormat=application/json&maxFeatures=500`;
         const res = await fetch(url, {
           headers: {
             "ngrok-skip-browser-warning": "true",
@@ -310,7 +310,7 @@ const CoastlineDashboard = () => {
     try {
       const checkPromises = ALL_LAYERS_ARRAY.map(async (layer) => {
         try {
-          const url = `https://headpiece-scary-morale.ngrok-free.dev/geoserver/dashboard/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=${layer}&outputFormat=application/json&maxFeatures=1`;
+          const url = `https://helped-prague-synthesis-ryan.trycloudflare.com/geoserver/dashboard/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=${layer}&outputFormat=application/json&maxFeatures=1`;
           const res = await fetch(url, {
             headers: {
               "ngrok-skip-browser-warning": "true",
@@ -347,7 +347,7 @@ const CoastlineDashboard = () => {
       }
 
       const compiledLayers = availableLayers.join(",");
-      const downloadUrl = `https://headpiece-scary-morale.ngrok-free.dev/geoserver/dashboard/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=${compiledLayers}&outputFormat=geopackage&format_options=filename:semua_data_capstone.gpkg`;
+      const downloadUrl = `https://helped-prague-synthesis-ryan.trycloudflare.com/geoserver/dashboard/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=${compiledLayers}&outputFormat=geopackage&format_options=filename:semua_data_capstone.gpkg`;
 
       const a = document.createElement("a");
       a.href = downloadUrl;
@@ -837,7 +837,7 @@ const CoastlineDashboard = () => {
                         <a
                           href={
                             layerAvailability.source
-                              ? `https://headpiece-scary-morale.ngrok-free.dev/geoserver/dashboard/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=${sourceLayerName}&outputFormat=geopackage&format_options=filename:${sourceZipName}`
+                              ? `https://helped-prague-synthesis-ryan.trycloudflare.com/geoserver/dashboard/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=${sourceLayerName}&outputFormat=geopackage&format_options=filename:${sourceZipName}`
                               : "#"
                           }
                           onClick={(e) => {
@@ -857,7 +857,7 @@ const CoastlineDashboard = () => {
                         <a
                           href={
                             layerAvailability.target
-                              ? `https://headpiece-scary-morale.ngrok-free.dev/geoserver/dashboard/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=${targetLayerName}&outputFormat=geopackage&format_options=filename:${targetZipName}`
+                              ? `https://helped-prague-synthesis-ryan.trycloudflare.com/geoserver/dashboard/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=${targetLayerName}&outputFormat=geopackage&format_options=filename:${targetZipName}`
                               : "#"
                           }
                           onClick={(e) => {

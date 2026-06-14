@@ -67,7 +67,7 @@ export default function CustomJSONMap({
   hasMorphology = false,
 }: CustomMapProps) {
   const geoserverUrl =
-    "https://headpiece-scary-morale.ngrok-free.dev/geoserver/dashboard/wms";
+    "https://helped-prague-synthesis-ryan.trycloudflare.com/geoserver/dashboard/wms";
 
   // --- LOGIKA PEMILIHAN STYLE (KUAS) GEOSERVER ---
   // Default: Polos (Biru/Hijau)
