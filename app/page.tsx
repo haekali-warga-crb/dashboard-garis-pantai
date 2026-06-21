@@ -271,12 +271,8 @@ const CoastlineDashboard = () => {
     if (!sourceLayerName || !targetLayerName) return;
     const fetchAttributes = async (layerName) => {
       try {
-        const url = `https://helped-prague-synthesis-ryan.trycloudflare.com/geoserver/dashboard/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=${layerName}&outputFormat=application/json&maxFeatures=500`;
-        const res = await fetch(url, {
-          headers: {
-            "ngrok-skip-browser-warning": "true",
-          },
-        });
+        const url = `https://dashboardgarispantai.my.id/geoserver/dashboard/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=${layerName}&outputFormat=application/json&maxFeatures=500`;
+        const res = await fetch(url);
         const contentType = res.headers.get("content-type");
         if (!contentType || !contentType.includes("application/json"))
           return null;
@@ -310,12 +306,8 @@ const CoastlineDashboard = () => {
     try {
       const checkPromises = ALL_LAYERS_ARRAY.map(async (layer) => {
         try {
-          const url = `https://helped-prague-synthesis-ryan.trycloudflare.com/geoserver/dashboard/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=${layer}&outputFormat=application/json&maxFeatures=1`;
-          const res = await fetch(url, {
-            headers: {
-              "ngrok-skip-browser-warning": "true",
-            },
-          });
+          const url = `https://dashboardgarispantai.my.id/geoserver/dashboard/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=${layer}&outputFormat=application/json&maxFeatures=1`;
+          const res = await fetch(url);
           const contentType = res.headers.get("content-type");
           if (
             res.ok &&
@@ -347,7 +339,7 @@ const CoastlineDashboard = () => {
       }
 
       const compiledLayers = availableLayers.join(",");
-      const downloadUrl = `https://helped-prague-synthesis-ryan.trycloudflare.com/geoserver/dashboard/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=${compiledLayers}&outputFormat=geopackage&format_options=filename:semua_data_capstone.gpkg`;
+      const downloadUrl = `https://dashboardgarispantai.my.id/geoserver/dashboard/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=${compiledLayers}&outputFormat=geopackage&format_options=filename:semua_data_capstone.gpkg`;
 
       const a = document.createElement("a");
       a.href = downloadUrl;
@@ -395,26 +387,37 @@ const CoastlineDashboard = () => {
         </div>
       )}
 
+      {/* HEADER BARU DENGAN LOGO INSTANSI */}
       <header className="bg-blue-900 text-white p-4 shadow-lg">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <Map className="w-8 h-8" />
+          <div className="flex items-center gap-4">
+            <div className="flex items-center bg-white px-2 py-1 rounded-md gap-3 shadow-sm">
+              <img
+                src="/logo-big.png"
+                alt="Logo BIG"
+                className="h-10 w-auto object-contain"
+              />
+              <div className="w-px h-8 bg-gray-300"></div>
+              <img
+                src="/logo-itb.png"
+                alt="Logo ITB"
+                className="h-10 w-auto object-contain"
+              />
+            </div>
             <div>
-              <h1 className="text-2xl font-bold">
-                Dashboard Generalisasi Garis Pantai
-              </h1>
+              <h1 className="text-2xl font-bold">Dashboard SIGMA</h1>
               <p className="text-sm text-blue-200">
-                Visualisasi Multi-Skala Garis Pantai Indonesia
+                Visualisasi Multi-Skala Generalisasi Garis Pantai Indonesia
               </p>
             </div>
           </div>
           <div className="flex gap-2">
             <a
-              href="/downloads/guidebook.pdf"
+              href="/downloads/manualbook.pdf"
               download
               className="px-4 py-2 bg-blue-700 hover:bg-blue-600 rounded-lg transition-colors flex items-center gap-2"
             >
-              <Download className="w-4 h-4" /> Unduh GuideBook
+              <Download className="w-4 h-4" /> Unduh ManualBook
             </a>
             <a
               href="/downloads/plugin_qgis.zip"
@@ -756,7 +759,7 @@ const CoastlineDashboard = () => {
 
               {activePanel === "download" && (
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                  {/* KARTU 1: GUIDEBOOK */}
+                  {/* KARTU 1: MANUALBOOK */}
                   <div className="border border-gray-200 rounded-xl p-5 hover:shadow-md transition-all bg-white group flex flex-col">
                     <div className="flex items-start gap-4 mb-4">
                       <div className="p-3 bg-blue-50 rounded-lg group-hover:bg-blue-100 transition-colors">
@@ -764,7 +767,7 @@ const CoastlineDashboard = () => {
                       </div>
                       <div className="flex-1">
                         <h3 className="font-bold text-gray-900 mb-1">
-                          GuideBook
+                          ManualBook
                         </h3>
                         <p className="text-sm text-gray-600 leading-relaxed">
                           Dokumen panduan lengkap metodologi dan standar
@@ -774,10 +777,10 @@ const CoastlineDashboard = () => {
                     </div>
                     <div className="flex items-center justify-between mt-auto pt-4 border-t border-gray-100">
                       <span className="text-xs font-medium text-gray-500 bg-gray-100 px-2 py-1 rounded">
-                        PDF • 2.5 MB
+                        PDF • 2.8 MB
                       </span>
                       <a
-                        href="/downloads/guidebook.pdf"
+                        href="/downloads/manualbook.pdf"
                         download
                         className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 text-sm font-medium transition-colors inline-block text-center"
                       >
@@ -804,7 +807,7 @@ const CoastlineDashboard = () => {
                     </div>
                     <div className="flex items-center justify-between mt-auto pt-4 border-t border-gray-100">
                       <span className="text-xs font-medium text-gray-500 bg-gray-100 px-2 py-1 rounded">
-                        ZIP • 450 KB
+                        ZIP • 35 KB
                       </span>
                       <a
                         href="/downloads/plugin_qgis.zip"
@@ -837,7 +840,7 @@ const CoastlineDashboard = () => {
                         <a
                           href={
                             layerAvailability.source
-                              ? `https://helped-prague-synthesis-ryan.trycloudflare.com/geoserver/dashboard/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=${sourceLayerName}&outputFormat=geopackage&format_options=filename:${sourceZipName}`
+                              ? `https://dashboardgarispantai.my.id/geoserver/dashboard/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=${sourceLayerName}&outputFormat=geopackage&format_options=filename:${sourceZipName}`
                               : "#"
                           }
                           onClick={(e) => {
@@ -857,7 +860,7 @@ const CoastlineDashboard = () => {
                         <a
                           href={
                             layerAvailability.target
-                              ? `https://helped-prague-synthesis-ryan.trycloudflare.com/geoserver/dashboard/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=${targetLayerName}&outputFormat=geopackage&format_options=filename:${targetZipName}`
+                              ? `https://dashboardgarispantai.my.id/geoserver/dashboard/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=${targetLayerName}&outputFormat=geopackage&format_options=filename:${targetZipName}`
                               : "#"
                           }
                           onClick={(e) => {

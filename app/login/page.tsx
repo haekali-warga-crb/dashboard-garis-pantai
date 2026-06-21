@@ -48,11 +48,24 @@ export default function LoginPage() {
     <div className="flex min-h-screen items-center justify-center bg-slate-900 px-4 py-12 sm:px-6 lg:px-8">
       <div className="w-full max-w-md space-y-8 bg-white p-8 rounded-2xl shadow-2xl">
         <div>
-          <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-blue-100 text-blue-600">
-            <Lock className="h-6 w-6" />
+          {/* WADAH LOGO BARU MENGGANTIKAN IKON GEMBOK LAMA */}
+          <div className="flex justify-center items-center gap-6 mb-6">
+            <img
+              src="/logo-big.png"
+              alt="Logo BIG"
+              className="h-16 w-auto object-contain"
+            />
+            {/* Garis Pemisah Vertikal */}
+            <div className="w-[2px] h-12 bg-gray-200 rounded-full"></div>
+            <img
+              src="/logo-itb.png"
+              alt="Logo ITB"
+              className="h-16 w-auto object-contain"
+            />
           </div>
-          <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
-            Sistem QA/QC Spasial
+
+          <h2 className="mt-2 text-center text-3xl font-bold tracking-tight text-gray-900">
+            Sistem SIGMA
           </h2>
           <p className="mt-2 text-center text-sm text-gray-600">
             Dashboard Terbatas Kerja Sama BIG & ITB

@@ -67,7 +67,7 @@ export default function CustomJSONMap({
   hasMorphology = false,
 }: CustomMapProps) {
   const geoserverUrl =
-    "https://helped-prague-synthesis-ryan.trycloudflare.com/geoserver/dashboard/wms";
+    "https://dashboardgarispantai.my.id/geoserver/dashboard/wms";
 
   // --- LOGIKA PEMILIHAN STYLE (KUAS) GEOSERVER ---
   // Default: Polos (Biru/Hijau)

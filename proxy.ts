@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   // Ambil token login dari cookie browser
   const token = request.cookies.get("auth_token")?.value;
   const isLoginPage = request.nextUrl.pathname === "/login";
@@ -23,7 +23,7 @@ export function middleware(request: NextRequest) {
   return NextResponse.next();
 }
 
-// Konfigurasi halaman mana saja yang dijaga oleh middleware ini
+// Konfigurasi halaman mana saja yang dijaga oleh proxy ini
 export const config = {
   matcher: [
     "/", // Jaga halaman utama dashboard
